@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="147644f1-def8-4342-942b-61e8812705bc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/customer-service/.env" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/customer-service/api.yaml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/customer-service/db/mysql.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/customer-service/model/customer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/customer-service/routes/customer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/customer-service/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/customer-service/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/main.go" afterDir="false" />
@@ -39,7 +42,7 @@
     "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "C:/Users/hp/Desktop/microservices/customer-service",
+    "last_opened_file_path": "C:/Users/hp/Desktop/microservices/auth",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -66,6 +69,7 @@
       <updated>1738181793072</updated>
       <workItem from="1738181794400" duration="624000" />
       <workItem from="1738231783834" duration="596000" />
+      <workItem from="1738352799135" duration="604000" />
     </task>
     <servers />
   </component>
