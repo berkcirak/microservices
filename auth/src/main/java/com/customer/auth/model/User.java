@@ -2,9 +2,11 @@ package com.customer.auth.model;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Table(name = "user")
 @Entity
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

@@ -30,6 +30,15 @@ public class UserController {
         return userService.verify(user);
     }
 
+    @PostMapping("/logout")
+    public String logout(@RequestHeader("Authorization") String authHeader){
+        if (authHeader != null && authHeader.startsWith("Bearer ")){
+            String token = authHeader.substring(7);
+            jwtService.invalidateToken(token);
+            return "logout";
+        }
+        return "Token could not found";
+    }
     @GetMapping("/profile")
     public User userProfile(){
         return userService.getUserPrincipal();
