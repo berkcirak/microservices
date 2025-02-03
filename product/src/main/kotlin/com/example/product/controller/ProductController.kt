@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestPart
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.multipart.MultipartFile
 import com.fasterxml.jackson.databind.ObjectMapper
+import org.springframework.data.domain.Page
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestParam
 
 @RestController
 @RequestMapping("/products")
@@ -37,9 +39,10 @@ class ProductController (private val productService: ProductService){
         return ResponseEntity.ok(product)
     }
     @GetMapping
-    fun getAllProducts(): ResponseEntity<List<Product>>{
-        return ResponseEntity.ok(productService.getAllProducts())
+    fun getProducts(@RequestParam("page") pageNumber: Int, @RequestParam("size") pageSize: Int): Page<Product>{
+        return productService.getAllProducts(pageNumber, pageSize)
     }
+
     @GetMapping("/{productId}/image", produces = [MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE])
     fun getProductImage(@PathVariable productId: Long):ResponseEntity<ByteArray>{
         val imageData = productService.getProductImage(productId)
