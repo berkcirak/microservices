@@ -2,7 +2,7 @@ package com.order.order.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.order.order.model.Order;
+import com.order.order.model.Orders;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -22,9 +22,9 @@ public class OrderMessageService {
 
     private final String queueName = "orderQueue";
 
-    public void sendMessage(Order order){
+    public void sendMessage(Orders orders){
         try{
-            String message = objectMapper.writeValueAsString(order);
+            String message = objectMapper.writeValueAsString(orders);
             rabbitTemplate.convertAndSend(queueName, message);
             log.info("Message sent to RabbitMQ: " + message);
         } catch (JsonProcessingException e){

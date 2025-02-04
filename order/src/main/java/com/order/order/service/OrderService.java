@@ -1,6 +1,6 @@
 package com.order.order.service;
 
-import com.order.order.model.Order;
+import com.order.order.model.Orders;
 import com.order.order.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,15 +17,15 @@ public class OrderService {
         this.orderMessageService=orderMessageService;
     }
 
-    public Order saveOrder(Order order){
+    public Orders saveOrder(Orders orders){
         LocalDateTime currentDateTime = LocalDateTime.now();
-        order.setOrderDate(currentDateTime);
-        Order createdOrder = orderRepository.save(order);
-        orderMessageService.sendMessage(order);
-        return createdOrder;
+        orders.setOrderDate(currentDateTime);
+        Orders createdOrders = orderRepository.save(orders);
+        orderMessageService.sendMessage(orders);
+        return createdOrders;
     }
 
-    public List<Order> listOrders(String customerNumber){
+    public List<Orders> listOrders(String customerNumber){
         return orderRepository.findByCustomerNumber(customerNumber);
     }
 
