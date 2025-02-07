@@ -5,9 +5,19 @@ import (
 	"net/smtp"
 	"notification-service/config"
 	"notification-service/message"
+	"time"
 )
 
+var lastSentTime time.Time
+
 func SendEmail(message message.EmailMessage) error {
+
+	// Eğer son gönderme üzerinden 5 dakika (300 saniye) geçmediyse, e-posta göndermeyi durdur.
+	if time.Since(lastSentTime) < 5*time.Minute {
+		fmt.Println("Skipping email: Last email sent recently.")
+		return nil
+	}
+
 	config, err := config.LoadConfig()
 	if err != nil {
 		return err

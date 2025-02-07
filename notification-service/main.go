@@ -8,7 +8,7 @@ import (
 
 func main() {
 	message := message.EmailMessage{
-		To:      "example2@gmail.com",
+		To:      "berkcirak17@gmail.com",
 		Subject: "test subject",
 		Body:    "test body",
 	}
